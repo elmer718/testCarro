@@ -39,7 +39,7 @@ public class SecurityConfig {
 
         http.csrf().disable()
                 .authorizeRequests()
-                .requestMatchers("/rest/auth/**","/carro").permitAll()
+                .requestMatchers("/rest/auth/**","/carro","/docs/swagger-ui/**","/api-docs/**").permitAll()
                 .anyRequest().authenticated()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().addFilterBefore(jwtAuthorizationFilter,UsernamePasswordAuthenticationFilter.class);
